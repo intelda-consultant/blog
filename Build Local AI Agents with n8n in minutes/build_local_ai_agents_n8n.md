@@ -24,6 +24,7 @@ n8n (pronounced “n-eight-n”) is a visual workflow automation tool that conne
 
 To run n8n locally, you’ll need:
 
+
 - Docker  
 - A terminal (Command Prompt, PowerShell, or Terminal)
 
@@ -67,23 +68,25 @@ Once n8n is running locally:
 
 In the n8n UI:  
 - Click **"Create Workflow"**
-- ![Create Workflow](imgs/1.png)
+![Create Workflow](imgs/1.png)
 
 ### 2. Add a Chat Trigger
 
 - Use the **“Chat Trigger”** node  
 - This simulates a chatbot conversation in the UI
-- ![Chat Trigger](imgs/2.png)
+![Chat Trigger](imgs/2.png)
 
 ### 3. Add an AI Agent Node
 
 - Go to **Advanced AI → AI Agent**  
-- ![Agent Node](imgs/3.png)
+![Agent Node](imgs/3.png)
 - Connect it to a model like **GPT-4.0 from OpenAI**  
-- ![Agent Node](imgs/4.png)
+![Chat Model](imgs/4.png)
+- You’ll need to add your OpenAI API key (can be a free-tier for testing).
 - Add your OpenAI API key:
 
 To get your API key:
+![Model](imgs/5.png)
 - Visit: https://platform.openai.com/account/api-keys  
 - Generate and paste into n8n under **Credentials**
 
@@ -92,6 +95,7 @@ To get your API key:
 ## 🧠 Enable Memory for the Agent
 
 Enable **Window Buffer Memory** in the AI Agent node to allow multi-turn conversation (e.g., track last five messages).
+![Window Buffer Memory](imgs/6.png)
 
 ---
 
