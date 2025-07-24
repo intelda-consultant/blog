@@ -30,6 +30,8 @@ Trigger Nodes initiate workflows. They monitor for specific events or conditions
 - **Email Trigger**: Watches for incoming emails  
 - **RSS Feed Trigger**: Monitors for feed updates  
 
+![Trigger Nodes Example](2.png)
+
 ---
 
 ## 🟡 2. Action Nodes: Do Something With the Data
@@ -47,6 +49,8 @@ Once a workflow begins, Action Nodes perform tasks by interacting with external 
 - **Airtable**: Create, update, or find records  
 - **Send Email**: Dispatches emails via SMTP or third-party providers  
 - **Discord**: Posts messages to a channel or direct messages  
+
+![Action Nodes Example](3.png)
 
 ---
 
@@ -66,6 +70,8 @@ Utility Nodes don’t communicate with external apps. Instead, they transform, f
 - **SplitInBatches**: Breaks up large datasets for sequential processing  
 - **Merge**: Combines multiple inputs into a single output  
 
+![Utility Nodes Example](4.png)
+
 ---
 
 ## 🧠 4. Code Nodes: Injecting Custom Logic
@@ -81,6 +87,8 @@ For developers and power users, Code Nodes offer the ability to write JavaScript
 - **Function**: Runs custom JavaScript using current workflow items  
 - **FunctionItem**: Executes JavaScript on each item individually  
 - **HTTP Request**: A multipurpose tool for direct API calls  
+
+![Code Nodes Example](5.png)
 
 ---
 
