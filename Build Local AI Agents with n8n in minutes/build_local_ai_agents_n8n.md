@@ -67,16 +67,20 @@ Once n8n is running locally:
 
 In the n8n UI:  
 - Click **"Create Workflow"**
+- ![Create Workflow](imgs/1.png)
 
 ### 2. Add a Chat Trigger
 
 - Use the **“Chat Trigger”** node  
 - This simulates a chatbot conversation in the UI
+- ![Chat Trigger](imgs/2.png)
 
 ### 3. Add an AI Agent Node
 
 - Go to **Advanced AI → AI Agent**  
+- ![Agent Node](imgs/3.png)
 - Connect it to a model like **GPT-4.0 from OpenAI**  
+- ![Agent Node](imgs/4.png)
 - Add your OpenAI API key:
 
 To get your API key:
