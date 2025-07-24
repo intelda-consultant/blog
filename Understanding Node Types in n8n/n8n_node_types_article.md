@@ -30,7 +30,7 @@ Trigger Nodes initiate workflows. They monitor for specific events or conditions
 - **Email Trigger**: Watches for incoming emails  
 - **RSS Feed Trigger**: Monitors for feed updates  
 
-![Trigger Nodes Example](imgs\2.png)
+![Trigger Nodes Example](imgs/2.png)
 
 ---
 
@@ -50,7 +50,7 @@ Once a workflow begins, Action Nodes perform tasks by interacting with external 
 - **Send Email**: Dispatches emails via SMTP or third-party providers  
 - **Discord**: Posts messages to a channel or direct messages  
 
-![Action Nodes Example](imgs\3.png)
+![Action Nodes Example](imgs/3.png)
 
 ---
 
@@ -88,7 +88,7 @@ For developers and power users, Code Nodes offer the ability to write JavaScript
 - **FunctionItem**: Executes JavaScript on each item individually  
 - **HTTP Request**: A multipurpose tool for direct API calls  
 
-![Code Nodes Example](imgs\5.png)
+![Code Nodes Example](imgs/5.png)
 
 ---
 
