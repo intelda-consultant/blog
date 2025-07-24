@@ -1,1 +1,1 @@
-# blog
+# Intelda Blog
