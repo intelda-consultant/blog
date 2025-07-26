@@ -1,0 +1,41 @@
+# Site settings
+title: "Intelda Consultant Blog"
+description: "Technical articles on AI, Machine Learning, and Data Science"
+baseurl: "/blog"
+url: "https://intelda-consultant.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Social links (optional)
+github_username: intelda-consultant
+# linkedin_username: yourlinkedin
+
+# Google Analytics (optional)
+# google_analytics: UA-XXXXXXXX-X
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
