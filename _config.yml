@@ -1,0 +1,24 @@
+title: IntelDA Consultant Blog
+email: contact@intelda-consultant.com
+description: >-
+  Expert insights on AI, machine learning, programming, and emerging technologies. 
+  Practical tutorials and in-depth analysis for developers and tech professionals.
+baseurl: ""
+url: "https://intelda-consultant.github.io/blog"
+github_username: intelda-consultant
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
