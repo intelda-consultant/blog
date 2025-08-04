@@ -9,23 +9,6 @@ baseurl: ""
 # Build settings
 markdown: kramdown
 highlighter: rouge
-theme: minima
-
-# GitHub Pages specific
-remote_theme: jekyll/minima
-
-# Plugins
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
-
-# GitHub Pages safe plugins
-safe: true
-whitelist:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
 
 # Navigation
 header_pages:
@@ -37,9 +20,6 @@ linkedin_username: ""
 
 # SEO
 lang: en
-
-# Google Analytics
-google_analytics: ""
 
 # Exclude from processing
 exclude:
