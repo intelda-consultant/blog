@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Build Local AI Agents with n8n in Minutes | Intelda.ca Blog</title>
+  <meta name="description" content="Learn how to build AI agents using n8n workflow automation platform and run them locally using Docker.">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="wrapper">
+      <a class="site-title" href="../">Intelda.ca Blog</a>
+      <nav class="site-nav">
+        <a class="page-link" href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="wrapper">
+      <article class="post">
+        <header class="post-header">
+          <h1 class="post-title">Build Local AI Agents with n8n in Minutes</h1>
+          <p class="post-meta">Jul 19, 2025 • Fakhri</p>
+        </header>
+
+        <div class="post-content">
+          <p>Welcome! In this tutorial, you'll learn how to build AI agents using <strong>n8n</strong>—a robust workflow automation platform—and run them locally using Docker. We'll cover what n8n is, how AI agents work, how to install n8n with Docker, and how to build your first intelligent automation with an AI agent and Airtable.</p>
+
+          <hr>
+
+          <h2 id="what-is-n8n">📌 What Is n8n?</h2>
+          <p>n8n (pronounced "n-eight-n") is a visual workflow automation tool that connects apps, services, and custom logic into seamless automations. It's like Zapier or Make—but open-source and far more flexible.</p>
+
+          <hr>
+
+          <h2 id="why-use-ai-agents">🧠 Why Use AI Agents?</h2>
+          <ul>
+            <li>Workflows are linear automations with predefined paths.</li>
+            <li><strong>AI Agents</strong> use large language models (LLMs) like GPT to decide which tool to use dynamically, based on input and context.</li>
+            <li><strong>AI agents = smart automations</strong> that can search databases, make decisions, and evolve in conversation.</li>
+          </ul>
+
+          <hr>
+
+          <h2 id="install-n8n">💻 Step 1: Install n8n Locally Using Docker</h2>
+          <p>To run n8n locally, you'll need:</p>
+          <ul>
+            <li>Docker</li>
+            <li>A terminal (Command Prompt, PowerShell, or Terminal)</li>
+          </ul>
+
+          <p><strong>🔧 Run n8n with Docker (Single Command):</strong></p>
+          <pre><code>docker run -it --rm \\
+  -p 5678:5678 \\
+  -v ~/.n8n:/home/node/.n8n \\
+  -e N8N_BASIC_AUTH_ACTIVE=true \\
+  -e N8N_BASIC_AUTH_USER=admin \\
+  -e N8N_BASIC_AUTH_PASSWORD=your_password \\
+  n8nio/n8n</code></pre>
+
+          <p>Access it at: <a href="http://localhost:5678">http://localhost:5678</a><br>
+          Login: <code>admin</code><br>
+          Password: <code>your_password</code></p>
+
+          <blockquote>
+            <p>💡 <strong>Pro Tip</strong>: For a persistent local service, consider using a <code>docker-compose.yml</code> file. Let me know if you'd like that too.</p>
+          </blockquote>
+
+          <hr>
+
+          <h2 id="node-types">🧱 Understand Node Types in n8n</h2>
+          <p>Workflows in n8n are built using <strong>nodes</strong>, categorized as:</p>
+          <ul>
+            <li><strong>Trigger Nodes</strong>: Start your workflow (e.g., chat message, webhook, schedule)</li>
+            <li><strong>Action Nodes</strong>: Take actions in apps (e.g., send email, update Airtable)</li>
+            <li><strong>Utility Nodes</strong>: Modify, transform, or route data</li>
+            <li><strong>Code Nodes</strong>: Run custom logic (JavaScript, HTTP requests)</li>
+            <li><strong>AI Agent Node</strong>: The smart brain powered by GPT or other LLMs</li>
+          </ul>
+
+          <hr>
+
+          <h2 id="build-workflow">💬 Build a Local AI Agent Workflow</h2>
+          <p>Once n8n is running locally:</p>
+
+          <h3>1. Create a New Workflow</h3>
+          <p>In the n8n UI:</p>
+          <ul>
+            <li>Click <strong>"Create Workflow"</strong></li>
+          </ul>
+          <img src="../assets/images/n8n/1.png" alt="Create Workflow">
+
+          <h3>2. Add a Chat Trigger</h3>
+          <ul>
+            <li>Use the <strong>"Chat Trigger"</strong> node</li>
+            <li>This simulates a chatbot conversation in the UI</li>
+          </ul>
+          <img src="../assets/images/n8n/2.png" alt="Chat Trigger">
+
+          <h3>3. Add an AI Agent Node</h3>
+          <ul>
+            <li>Go to <strong>Advanced AI → AI Agent</strong></li>
+          </ul>
+          <img src="../assets/images/n8n/3.png" alt="Agent Node">
+          <ul>
+            <li>Connect it to a model like <strong>GPT-4.0 from OpenAI</strong></li>
+          </ul>
+          <img src="../assets/images/n8n/4.png" alt="Chat Model">
+          <ul>
+            <li>You'll need to add your OpenAI API key (can be a free-tier for testing).</li>
+          </ul>
+
+          <p>To get your API key:</p>
+          <img src="../assets/images/n8n/5.png" alt="Model">
+          <ul>
+            <li>Visit: <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a></li>
+            <li>Generate and paste into n8n under <strong>Credentials</strong></li>
+          </ul>
+
+          <hr>
+
+          <h2 id="enable-memory">🧠 Enable Memory for the Agent</h2>
+          <p>Enable <strong>Window Buffer Memory</strong> in the AI Agent node to allow multi-turn conversation (e.g., track last five messages).</p>
+          <img src="../assets/images/n8n/6.png" alt="Window Buffer Memory">
+
+          <hr>
+
+          <h2 id="airtable">🔗 Connect Your Agent to Airtable (Optional Tool Example)</h2>
+          <p>Let's make the AI agent smarter by integrating Airtable:</p>
+
+          <h3>Step 1: Build an Airtable Base</h3>
+          <p>Columns to include:</p>
+          <ul>
+            <li>Item Name</li>
+            <li>Quantity</li>
+            <li>Order Threshold</li>
+          </ul>
+
+          <h3>Step 2: In n8n</h3>
+          <p>Inside the AI Agent node:</p>
+          <ul>
+            <li>Add a Tool → <strong>Airtable</strong></li>
+            <li>Operation: <code>Search</code> or <code>Update</code></li>
+            <li>Authenticate with Airtable token (read/write/schema access)</li>
+            <li>Tool description: <em>"Searches my Airtable inventory."</em></li>
+          </ul>
+
+          <p>Example query the agent can now handle:</p>
+          <blockquote>
+            <p>"Is anything out of stock in my house?"</p>
+          </blockquote>
+
+          <hr>
+
+          <h2 id="summary">✅ Summary: What You've Built</h2>
+          <ul>
+            <li>✅ n8n installed locally with Docker</li>
+            <li>✅ A working AI agent powered by GPT</li>
+            <li>✅ Memory-enabled conversation</li>
+            <li>✅ Airtable integration for inventory</li>
+            <li>✅ Foundation for agentic automation system</li>
+          </ul>
+
+          <hr>
+
+          <h2 id="go-further">🚀 Want to Go Further?</h2>
+          <p>This is just the beginning. You can:</p>
+          <ul>
+            <li>Add tools (Google Sheets, Notion, Gmail, etc.)</li>
+            <li>Use conditions, loops, filters, or vector search</li>
+            <li>Connect to APIs or hardware (home automation)</li>
+          </ul>
+
+          <p>Let me know and I can help generate those for you too.</p>
+
+          <hr>
+
+          <p><strong>What is your favourite large language model (LLM) that you have used?</strong></p>
+          <p><strong>Thanks for reading!</strong></p>
+        </div>
+      </article>
+      
+      <div style="margin-top: 30px;">
+        <a href="../">&larr; Back to Blog</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <h2 class="footer-heading">Intelda.ca Blog</h2>
+      <div class="footer-col-wrapper">
+        <div class="footer-col footer-col-1">
+          <ul class="contact-list">
+            <li>Fakhri</li>
+            <li><a href="mailto:fakhri@intelda.ca">fakhri@intelda.ca</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col-2">
+          <!-- Social links would go here -->
+        </div>
+        <div class="footer-col footer-col-3">
+          <p>A blog about AI, automation, and technology</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
