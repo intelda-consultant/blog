@@ -1,6 +1,6 @@
 # Intelda.ca Blog
 
-A Jekyll blog about AI, automation, and technology, powered by the default Minima theme.
+A simple, clean blog about AI, automation, and technology with professional styling.
 
 ## 🚀 GitHub Pages Setup
 
@@ -8,46 +8,47 @@ This blog is ready to deploy to GitHub Pages:
 
 1. **Upload to GitHub**: Push all files to your GitHub repository
 2. **Enable GitHub Pages**: Go to repository Settings → Pages → Source: Deploy from branch → main
-3. **Wait for build**: GitHub will automatically build and deploy your Jekyll site
+3. **View your blog**: No build process needed - pure HTML/CSS!
 
-## 📁 Clean Structure
+## 📁 Simple Structure
 
 ```
-├── _config.yml           # Site configuration
-├── _posts/               # Blog posts (2 articles included)
-├── assets/images/        # Images and media
-├── about.md              # About page
-├── index.html            # Homepage
-├── Gemfile               # Jekyll dependencies
+├── index.html            # Homepage with blog posts list
+├── about.html            # About page
+├── posts/                # Individual blog post pages
+│   ├── build-local-ai-agents-with-n8n.html
+│   └── understanding-node-types-in-n8n.html
+├── assets/
+│   ├── style.css         # Complete styling (Minima-inspired)
+│   └── images/           # Blog images
 └── README.md             # This file
 ```
 
 ## ✨ Features
 
-- **Minima Theme**: Clean, responsive Jekyll theme
-- **Blog Posts**: Automatically listed on homepage
-- **SEO Optimized**: Built-in SEO tags and sitemap
-- **Mobile Friendly**: Responsive design
-- **RSS Feed**: Automatic feed generation
+- **Pure HTML/CSS**: No Jekyll processing required
+- **Professional Design**: Clean, responsive Minima-inspired theme
+- **Fast Loading**: No dependencies, instant loading
+- **Mobile Friendly**: Responsive design works on all devices
+- **Easy to Maintain**: Simple HTML files, easy to edit
 
 ## 📝 Adding New Posts
 
-Create new files in `_posts/` with format: `YYYY-MM-DD-title.md`
+1. Create a new HTML file in the `posts/` directory
+2. Copy the structure from existing posts
+3. Update the homepage `index.html` to include the new post in the list
 
-Example:
-```markdown
----
-layout: post
-title: "My New Post"
-date: 2025-08-03
-categories: [automation, ai]
-tags: [tutorial, guide]
----
+## 🎨 Styling
 
-Your content here...
-```
+The site uses a comprehensive CSS file (`assets/style.css`) that provides:
+- Minima-inspired design
+- Typography and spacing
+- Responsive layout
+- Professional color scheme
 
 ## 🌐 Live Site
 
 Once deployed, your blog will be available at:
 `https://yourusername.github.io/repository-name/`
+
+This approach is much more reliable than Jekyll processing and will work consistently on GitHub Pages!
