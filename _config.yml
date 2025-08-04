@@ -2,7 +2,7 @@
 title: "Intelda.ca Blog"
 description: "A blog about AI, automation, and technology"
 author: "Fakhri"
-email: your-email@example.com
+email: fakhri@intelda.ca
 url: ""
 baseurl: ""
 
@@ -11,8 +11,18 @@ markdown: kramdown
 highlighter: rouge
 theme: minima
 
+# GitHub Pages specific
+remote_theme: jekyll/minima
+
 # Plugins
 plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# GitHub Pages safe plugins
+safe: true
+whitelist:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
