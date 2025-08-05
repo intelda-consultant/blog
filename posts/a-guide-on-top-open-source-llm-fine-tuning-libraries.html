@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Guide on Top Open-Source LLM Fine-tuning Libraries | Intelda.ca Blog</title>
+  <meta name="description" content="Explore four leading open-source LLM fine-tuning libraries: Unsloth, Axolotl, LlamaFactory, and DeepSpeed. Learn their strengths and ideal use cases.">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="wrapper">
+      <a class="site-title" href="../">Intelda.ca Blog</a>
+      <nav class="site-nav">
+        <a class="page-link" href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="wrapper">
+      <article class="post">
+        <header class="post-header">
+          <h1 class="post-title">A Guide on Top Open-Source LLM Fine-tuning Libraries</h1>
+          <p class="post-meta">Jun 18, 2025 • Ahmed Ibrahim, PhD</p>
+        </header>
+
+        <div class="post-content">
+          <p>The world of Large Language Models (LLMs) is exploding, offering unprecedented capabilities in natural language understanding and generation. But what if you could tailor these powerful models to your specific needs, making them even more precise and effective for your unique tasks? This is where <strong>fine-tuning</strong> comes in — a crucial process that adapts pre-trained large language models (LLMs) to new datasets, unlocking their full potential for specialized applications.</p>
+
+          <p>While fine-tuning can seem daunting, a new generation of open-source libraries is democratizing this powerful technique, making it accessible to everyone from individual enthusiasts to large enterprises. This article dives deep into four leading open-source LLM fine-tuning libraries: <a href="https://unsloth.ai/">Unsloth</a>, <a href="https://axolotl.ai/">Axolotl</a>, <a href="https://github.com/hiyouga/LLaMA-Factory">LlamaFactory</a>, and <a href="https://huggingface.co/docs/peft/en/accelerate/deepspeed">DeepSpeed</a>.</p>
+
+          <p>Throughout this guide, we'll embark on a journey to:</p>
+          <ul>
+            <li>Uncover the unique strengths and <strong>key features</strong> of each library.</li>
+            <li>Explore their ideal <strong>use cases</strong> to help you identify which tool best suits your project.</li>
+            <li>Provide clear guidance on <strong>when to choose each library</strong>, empowering you to make informed decisions based on your hardware, expertise, and project goals.</li>
+          </ul>
+
+          <p>Get ready to transform your LLM projects and push the boundaries of what's possible!</p>
+
+          <hr>
+
+          <h2 id="unsloth">🚀 Unsloth</h2>
+
+          <p><a href="https://unsloth.ai/">Unsloth</a> is an open-source library designed to make LLM finetuning light, fast, and accessible, even on mid-range GPUs. Its primary appeal lies in its ability to significantly accelerate fine-tuning while drastically reducing VRAM consumption, making it a powerful tool for individuals and small teams with limited hardware resources. Unsloth achieves this efficiency through the implementation of highly optimized Triton kernels, which are hand-written GPU kernels that accelerate compute-heavy mathematical operations.</p>
+
+          <h3>Key Features</h3>
+
+          <p><strong>Optimized Performance</strong>: Unsloth boasts a 2x speedup in finetuning and up to 80% less VRAM usage compared to traditional methods. This is a game-changer for users who lack access to high-end GPUs or large clusters. The library achieves this by manually deriving and optimizing computationally intensive mathematical steps, as well as implementing custom Triton kernels.</p>
+
+          <p><strong>Versatile Finetuning Methods</strong>: It supports various finetuning techniques, including LoRA (Low-Rank Adaptation), QLoRA (Quantized LoRA), and full-tune, with support for 4-bit, 8-bit, and 16-bit quantization. This flexibility allows users to choose the most suitable method based on their computational constraints and desired performance.</p>
+
+          <p><strong>Broad Model Compatibility</strong>: Unsloth is compatible with a wide range of popular LLMs, including Llama 4, Phi 4, Gemma 3, Mistral, and more. It also extends its support beyond text models to include speech, diffusion, and BERT models, making it a versatile tool for various AI tasks.</p>
+
+          <p><strong>Ease of Use</strong>: One of Unsloth's significant advantages is its user-friendliness. It offers plug-and-play Colab or Kaggle notebooks that handle the heavy lifting, abstracting away complex configurations like DeepSpeed. This makes it ideal for beginners or those who prefer a streamlined fine-tuning experience without deep technical dives into distributed training setups.</p>
+
+          <p><strong>Hardware Compatibility</strong>: Unsloth runs on any CUDA-7.0+ NVIDIA GPU, ensuring broad compatibility with a wide range of consumer and professional-grade GPUs.</p>
+
+          <h3>Ideal Use Cases</h3>
+
+          <p>Unsloth is particularly well-suited for:</p>
+
+          <p><strong>Hackers and Small Teams</strong>: Its efficiency on 12–24 GB GPUs makes it perfect for individual developers or small teams looking to quickly experiment with LoRA finetuning without the need for expensive hardware or complex cluster setups.</p>
+
+          <p><strong>Rapid Prototyping and Experimentation</strong>: The speed and ease of use enable rapid iteration and experimentation with different models and datasets, accelerating the research and development cycle.</p>
+
+          <p><strong>Educational Purposes</strong>: Its simplified approach makes it an excellent tool for learning and understanding LLM finetuning without being overwhelmed by intricate technical details.</p>
+
+          <p><strong>Resource-Constrained Environments</strong>: For users with limited VRAM or computational power, Unsloth offers a viable solution for fine-tuning large models that would otherwise be out of reach.</p>
+
+          <h3>When to Use Unsloth:</h3>
+
+          <p>Choose Unsloth when your primary concerns are:</p>
+          <ul>
+            <li><strong>Speed and Memory Efficiency</strong>: You need to fine-tune LLMs quickly and with minimal VRAM usage.</li>
+            <li><strong>Simplicity</strong>: You prefer a straightforward, plug-and-play solution without extensive configuration.</li>
+            <li><strong>Limited Hardware</strong>: You are working with consumer-grade GPUs or have restricted access to high-performance computing resources.</li>
+            <li><strong>LoRA Experiments</strong>: You are primarily focused on LoRA or QLoRA finetuning and rapid experimentation.</li>
+          </ul>
+
+          <hr>
+
+          <h2 id="axolotl">⚡ Axolotl</h2>
+
+          <p><a href="https://axolotl.ai/">Axolotl</a> is a powerful and flexible LLM finetuning library that emphasizes reproducibility and ease of configuration through a YAML-centric approach. It acts as a wrapper around lower-level Hugging Face libraries, providing a more streamlined experience while retaining granular control over the finetuning process. Axolotl is designed to scale from a single laptop to large clusters, making it suitable for a wide range of users and computational environments.</p>
+
+          <h3>Key Features</h3>
+
+          <p><strong>Unified Configuration (YAML-driven)</strong>: Axolotl's core strength lies in its ability to define the entire finetuning pipeline within a single YAML file. This includes data preparation, model configuration, training parameters, and serving settings. This 'write once, reuse' philosophy promotes reproducibility and simplifies the management of complex fine-tuning recipes.</p>
+
+          <p><strong>Comprehensive Finetuning Support</strong>: It supports a broad spectrum of finetuning techniques, including full finetuning, LoRA, QLoRA, GPTQ, Quantization-Aware Training (QAT), Reinforcement Learning (RL), and preference tuning (DPO, IPO, KTO, ORPO, RM). This extensive support allows users to tackle diverse fine-tuning challenges and optimize models for various objectives.</p>
+
+          <p><strong>Advanced Performance Optimizations</strong>: Axolotl integrates cutting-edge optimization techniques, including FlashAttention, XFormers, multi-packing, and sequence parallelism. These features contribute to faster training times and more efficient memory utilization, especially for larger models and datasets.</p>
+
+          <p><strong>Scalability</strong>: Axolotl is built for scalability, supporting distributed training across multiple GPUs and nodes. It leverages technologies like FSDP (Fully Sharded Data Parallel), DeepSpeed, and Ray to enable seamless scaling from a single laptop to large clusters, making it suitable for enterprise-level training.</p>
+
+          <p><strong>Ready-to-Use Environments</strong>: The library provides ready-to-use Docker images and PyPI wheels, simplifying the setup process and ensuring consistent environments across different machines and cloud platforms.</p>
+
+          <p><strong>Multi-model Support</strong>: Axolotl supports a wide array of LLMs, including Llama, Mistral, Pythia, and many more, making it a versatile tool for various research and development needs.</p>
+
+          <h3>Ideal Use Cases</h3>
+
+          <p><strong>Teams Requiring Reproducibility</strong>: Its YAML-based configuration system is perfect for teams that need to ensure consistent and reproducible fine-tuning experiments across different members and iterations.</p>
+
+          <p><strong>Researchers and Developers</strong>: Users who require fine-grained control over the finetuning process and want to experiment with advanced techniques and optimizations will find Axolotl highly beneficial.</p>
+
+          <p><strong>Scalable Deployments</strong>: Organizations looking to fine-tune large models on clusters or in cloud environments will appreciate Axolotl's robust scaling capabilities.</p>
+
+          <p><strong>Complex Finetuning Workflows</strong>: For projects involving multiple stages of finetuning, different optimization strategies, or integration with various data sources, Axolotl's unified configuration simplifies the workflow.</p>
+
+          <h3>When to Use Axolotl</h3>
+
+          <p>Choose Axolotl when your priorities include:</p>
+          <ul>
+            <li><strong>Reproducibility and Consistency</strong>: Ensure that your fine-tuning experiments are easily reproducible and maintainable.</li>
+            <li><strong>Advanced Control</strong>: You require granular control over training parameters and want to leverage state-of-the-art optimization techniques.</li>
+            <li><strong>Scalability</strong>: You plan to fine-tune models on multi-GPU setups or large clusters.</li>
+            <li><strong>Diverse Finetuning Needs</strong>: You need support for a wide range of finetuning methods, including full finetuning, LoRA, QLoRA, and preference tuning.</li>
+          </ul>
+
+          <hr>
+
+          <h2 id="llamafactory">🎯 LlamaFactory</h2>
+
+          <p><a href="https://github.com/hiyouga/LLaMA-Factory">LlamaFactory</a> offers a user-friendly approach to LLM finetuning, distinguishing itself with a web-based graphical user interface (GUI) that simplifies the entire process. It integrates the latest research advancements and provides one-click deployment options, making it an attractive choice for users who prefer a visual workflow and streamlined operations.</p>
+
+          <h3>Key Features</h3>
+
+          <p><strong>Web-based GUI</strong>: LlamaFactory offers an intuitive web interface that enables users to configure and monitor fine-tuning jobs via a click-through wizard. This eliminates the need for extensive command-line knowledge, making it highly accessible to a broader audience, including those less familiar with coding.</p>
+
+          <p><strong>Comprehensive Finetuning Methods</strong>: It supports a variety of finetuning techniques, including 16-bit finetuning, freeze-tuning, LoRA, and low-bit QLoRA. This ensures flexibility for different computational resources and performance requirements.</p>
+
+          <p><strong>Integration of Latest Research</strong>: LlamaFactory incorporates cutting-edge research techniques, including FlashAttention-2, LongLoRA, GaLore, and DoRA. This enables users to leverage the latest advancements in efficient LLM fine-tuning without manually implementing them.</p>
+
+          <p><strong>Integrated Dashboards</strong>: The library offers built-in dashboards via LlamaBoard, Weights & Biases (W&B), and MLflow. These dashboards provide real-time monitoring of training progress, metrics, and experiment tracking, offering valuable insights into the fine-tuning process without extra wiring.</p>
+
+          <p><strong>One-click Deployment</strong>: LlamaFactory simplifies model deployment by offering one-click options for creating OpenAI-style APIs or vLLM workers. This feature significantly reduces the complexity of serving fine-tuned models, enabling users to put their models into production quickly.</p>
+
+          <p><strong>Wide Model Support</strong>: It supports over 100 large language models and vision-language models, including LLaMA, LLaVA, Mistral, Mixtral-MoE, Qwen, DeepSeek, Yi, Gemma, and ChatGLM, among others.</p>
+
+          <h3>Ideal Use Cases</h3>
+
+          <p>LlamaFactory is ideal for:</p>
+
+          <p><strong>Builders who love a GUI</strong>: Users who prefer a visual, interactive experience for configuring and managing their fine-tuning tasks will find LlamaFactory highly appealing.</p>
+
+          <p><strong>Users Needing Latest Research Tricks</strong>: Researchers and practitioners who want to quickly experiment with and apply the newest advancements in LLM finetuning without deep implementation knowledge.</p>
+
+          <p><strong>Streamlined Deployment</strong>: Individuals or teams who need a straightforward way to deploy their fine-tuned models as APIs for integration into applications.</p>
+
+          <p><strong>Beginners and Non-Coders</strong>: Its user-friendly interface makes it an excellent entry point for those new to LLM finetuning or who prefer a low-code/no-code approach.</p>
+
+          <h3>When to Use LlamaFactory</h3>
+
+          <p>Choose LlamaFactory when your primary considerations are:</p>
+          <ul>
+            <li><strong>Ease of Use and Visual Workflow</strong>: You prefer a GUI-driven approach to finetuning and want to avoid command-line complexities.</li>
+            <li><strong>Access to Latest Algorithms</strong>: You want to leverage state-of-the-art fine-tuning algorithms and optimizations without manual integration.</li>
+            <li><strong>Integrated Monitoring</strong>: You require built-in dashboards for real-time tracking and analysis of your fine-tuning experiments.</li>
+            <li><strong>Simplified Deployment</strong>: You need a quick and easy way to deploy your fine-tuned models as APIs.</li>
+          </ul>
+
+          <hr>
+
+          <h2 id="deepspeed">🏗️ DeepSpeed</h2>
+
+          <p><a href="https://huggingface.co/docs/peft/en/accelerate/deepspeed">DeepSpeed</a>, developed by Microsoft, is not strictly a finetuning library in the same vein as Unsloth, Axolotl, or LlamaFactory. Instead, it is a deep learning optimization library that serves as a powerful engine for training and inference of huge models, often acting as the underlying technology for other fine-tuning frameworks like Axolotl and LlamaFactory. Its core strength lies in its ability to turn clusters into supercomputers, enabling the training and deployment of models that would otherwise be computationally infeasible.</p>
+
+          <h3>Key Features</h3>
+
+          <p><strong>Extreme Scale and Speed</strong>: DeepSpeed is designed to handle models with billions or even trillions of parameters. It achieves unprecedented scale and speed for both training and inference through various optimization techniques, allowing efficient utilization of thousands of GPUs.</p>
+
+          <p><strong>Memory Optimization (ZeRO)</strong>: DeepSpeed's Zero Redundancy Optimizer (ZeRO) is a key innovation that significantly reduces memory consumption during training. It partitions model states (optimizer states, gradients, and parameters) across GPUs, enabling the training of models that are much larger than would be possible with traditional data parallelism.</p>
+
+          <p><strong>Parallelism Strategies</strong>: It supports various parallelism strategies, including 3D parallelism (combining data, pipeline, and tensor parallelism) and Mixture of Experts (MoE) parallelism, which are crucial for scaling training to massive models.</p>
+
+          <p><strong>Custom Inference Kernels</strong>: DeepSpeed includes custom inference kernels that provide sub-second latency for large models, making it suitable for high-throughput serving at massive Queries Per Second (QPS).</p>
+
+          <p><strong>Compression Techniques</strong>: DeepSpeed offers compression techniques like ZeroQuant and XTC compression, which reduce model size and cost, further enhancing inference efficiency.</p>
+
+          <p><strong>Plug-and-Play Compatibility</strong>: DeepSpeed is designed to be easily integrated with popular deep learning frameworks and libraries, including Hugging Face Transformers, PyTorch Lightning, and MosaicML, allowing users to leverage its optimizations within their existing workflows.</p>
+
+          <h3>Ideal Use Cases</h3>
+
+          <p><strong>Enterprises and researchers pushing boundaries</strong>: Organizations and research institutions working with models exceeding ten billion parameters or those requiring extreme scale for training and inference will find DeepSpeed indispensable.</p>
+
+          <p><strong>Large-Scale Distributed Training</strong>: For scenarios involving distributed training across multiple GPUs and nodes, DeepSpeed provides the necessary optimizations to handle memory and computational demands efficiently.</p>
+
+          <p><strong>High-Performance Inference</strong>: When deploying large models that require low latency and high throughput for serving, DeepSpeed's inference optimizations are crucial.</p>
+
+          <p><strong>Underlying Infrastructure</strong>: As mentioned, DeepSpeed often serves as the engine under the hood for other fine-tuning libraries, making it a foundational technology for advanced LLM operations.</p>
+
+          <h3>When to Use DeepSpeed</h3>
+
+          <p>Consider using DeepSpeed when:</p>
+          <ul>
+            <li><strong>Model Size is Extremely Large</strong>: You are working with models that have tens of billions or even trillions of parameters.</li>
+            <li><strong>Computational Resources are Abundant</strong>: You have access to multiple GPUs or a cluster and need to optimize their utilization for training and inference.</li>
+            <li><strong>Performance at Scale is Critical</strong>: Your application demands sub-second latency and high throughput for serving large language models.</li>
+            <li><strong>You are Building a Fine-tuning Framework</strong>: If you are developing your own fine-tuning solution, DeepSpeed can provide the core optimization capabilities.</li>
+          </ul>
+
+          <hr>
+
+          <h2 id="conclusion">✅ Conclusion and Recommendations</h2>
+
+          <p>The choice of an open-source LLM finetuning library largely depends on the user's specific needs, technical expertise, and available hardware resources. Each of the four libraries discussed — <strong>Unsloth</strong>, <strong>Axolotl</strong>, <strong>LlamaFactory</strong>, and <strong>DeepSpeed</strong> — offers distinct advantages and caters to different use cases.</p>
+
+          <p><strong>Unsloth</strong> stands out for its exceptional speed and memory efficiency, making it the go-to choice for individuals and small teams with limited GPU resources. Its plug-and-play nature and optimized kernels allow for rapid experimentation and fine-tuning on consumer-grade hardware. If you're a hacker or a small team looking to quickly iterate on LoRA experiments without diving deep into complex configurations, Unsloth is your ideal companion.</p>
+
+          <p><strong>Axolotl</strong> provides a robust solution for users who prioritize reproducibility and scalability. Its YAML-driven configuration ensures that finetuning pipelines are consistent and easily shareable, making it perfect for research teams and organizations that require precise control over their experiments. Axolotl's ability to scale from a single laptop to large clusters, coupled with its support for a wide array of fine-tuning methods, positions it as a versatile tool for advanced users and enterprise-level deployments.</p>
+
+          <p><strong>LlamaFactory</strong> shines with its user-friendly web interface and integrated dashboards, offering a streamlined experience for those who prefer a visual workflow. It democratizes access to cutting-edge research tricks and simplifies model deployment with one-click API generation. If you're a builder who appreciates a GUI, wants to leverage the latest algorithms without complex coding, and needs integrated monitoring and easy deployment, LlamaFactory is an excellent choice.</p>
+
+          <p><strong>DeepSpeed</strong>, while not a direct fine-tuning library, is a foundational optimization engine that enables the training and inference of colossal LLMs. It is designed for enterprises and researchers pushing the boundaries of model scale, offering unparalleled memory efficiency and parallelism strategies. DeepSpeed is the engine under the hood for many advanced large language model (LLM) operations, and its direct use is typically reserved for those working with models that exceed tens of billions of parameters or require extreme performance at scale.</p>
+
+          <h3>In summary</h3>
+          <ul>
+            <li>For quick, resource-efficient experiments on single GPUs: Choose <strong>Unsloth</strong>.</li>
+            <li>For reproducible and scalable fine-tuning with fine-grained control, opt for <strong>Axolotl</strong>.</li>
+            <li>For a user-friendly, GUI-driven experience with integrated dashboards and easy deployment: Go with <strong>LlamaFactory</strong>.</li>
+            <li>For training and inferencing models with billions or trillions of parameters on large clusters: Leverage <strong>DeepSpeed</strong> as an underlying optimization library.</li>
+          </ul>
+
+          <p>Ultimately, the best library is the one that aligns most closely with your project's requirements, your team's expertise, and your available computational infrastructure. By understanding the unique strengths of each, you can make an informed decision to accelerate your LLM fine-tuning journey.</p>
+
+          <hr>
+
+          <p><strong>Which LLM fine-tuning library have you used, and what was your experience?</strong></p>
+          <p><strong>Thanks for reading!</strong></p>
+        </div>
+      </article>
+      
+      <div style="margin-top: 30px;">
+        <a href="../">&larr; Back to Blog</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <h2 class="footer-heading">Intelda.ca Blog</h2>
+      <div class="footer-col-wrapper">
+        <div class="footer-col footer-col-1">
+          <ul class="contact-list">
+            <li>Intelda.ca</li>
+            <li><a href="mailto:admin@intelda.ca">admin@intelda.ca</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col-2">
+          <!-- Social links would go here -->
+        </div>
+        <div class="footer-col footer-col-3">
+          <p>A blog about AI, automation, and technology</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
